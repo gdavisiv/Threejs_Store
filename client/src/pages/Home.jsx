@@ -11,11 +11,23 @@ import {
 } from '../config/motion';
 
 const Home = () => {
-  const snap = useSnapshot(state)
+  const snap = useSnapshot(state);
 
   return (
-    <div>Home</div>
+    <AnimatePresence>
+      {snap.intro && (
+        <motion.section className="Home" {...slideAnimation('left')}>
+          <motion.header>
+            <img 
+              src='./threejs.png'
+              alt="logo"
+              className="w-8 h-8 object-contain"
+            />
+          </motion.header>
+        </motion.section>
+      )}
+    </AnimatePresence>
   )
 }
 
-export default Home
+export default Home;
