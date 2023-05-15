@@ -24,6 +24,18 @@ const Home = () => {
               className="w-8 h-8 object-contain"
             />
           </motion.header>
+
+          <motion.div className="home-content" {...headContainerAnimation}>
+              <motion.div {...headTextAnimation}>
+                <h1 className="head-text">Carry <br className="xl:block hidden" /> It Chic </h1>
+              <motion.div>
+                <p>
+                Carry it chic with the perfect mini bag for all your essentials! <strong>Unleash your Sophisticated Style</strong>{" "}
+                and Rock your Bag.
+                </p>
+              </motion.div>
+              </motion.div>
+            </motion.div>
         </motion.section>
       )}
     </AnimatePresence>
