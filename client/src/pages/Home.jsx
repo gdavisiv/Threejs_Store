@@ -28,9 +28,12 @@ const Home = () => {
           <motion.div className="home-content" {...headContainerAnimation}>
               <motion.div {...headTextAnimation}>
                 <h1 className="head-text">Carry <br className="xl:block hidden" /> It Chic </h1>
-              <motion.div>
+              <motion.div
+                {...headContentAnimation}
+                className="flex flex-col gap-5"
+              >
                 <p className="max-w-md font-normal text-gray-600 text-base">
-                Carry it chic with the perfect mini bag for all your essentials! <strong>Unleash your Sophisticated Style</strong>{" "}
+                Carry it chic with the perfect mini bag for all your essential needs! <strong>Unleash your Sophisticated Style</strong>{" "}
                 and Rock your Bag.
                 </p>
               </motion.div>
