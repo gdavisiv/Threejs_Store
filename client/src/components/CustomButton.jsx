@@ -4,7 +4,7 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
   const generateStyle = (type) => {
     if(type === 'filled') {
       return {
-        backgroundColor='#000',
+        backgroundColor:'#000',
         color: '#fff'
       }
     }
