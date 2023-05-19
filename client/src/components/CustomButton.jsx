@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const CustomButton = () => {
   return (
-    <div>CustomButton</div>
+    <button
+      className={'px-2'}
+    >
+      {title}
+    </button>
   )
 }
 
