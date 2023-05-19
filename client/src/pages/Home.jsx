@@ -36,6 +36,8 @@ const Home = () => {
                 Carry it chic with the perfect mini bag for all your essential needs! <strong>Unleash your Sophisticated Style</strong>{" "}
                 and Rock your Bag.
                 </p>
+
+                <CustomButton />
               </motion.div>
               </motion.div>
             </motion.div>
