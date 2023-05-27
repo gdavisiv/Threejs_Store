@@ -17,7 +17,9 @@ const Customizer = () => {
     <AnimatePresence>
       {!snap.intro && (
         <>
-          Costumizer
+          <motion.div>
+            
+          </motion.div>
         </>
       )}
     </AnimatePresence>
