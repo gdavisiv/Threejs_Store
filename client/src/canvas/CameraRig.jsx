@@ -10,6 +10,14 @@ const CameraRig = ({ children }) => {
   const snap = useSnapshot(state);
 
   useFrame((state, delta) => {
+    const isBreakpoint = window.innerWidth <= 1260;
+    const isMobile = window.innerWidth <= 600;
+
+  //set the initial position of the model
+  let targetPosition = [-0.4, 0, 2];
+  if(snap.intro) {
+    if(isBreakpoint) targetPosition = [0, 0, 2]
+  }
 
   //set the model rotation
   easing.dampE(
