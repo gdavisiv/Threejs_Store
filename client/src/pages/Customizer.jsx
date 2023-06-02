@@ -1,3 +1,5 @@
+//00:44:45
+
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
@@ -33,6 +35,9 @@ const Customizer = () => {
                 ))}
               </div>
             </div>
+          </motion.div>
+
+          <motion.div>
             
           </motion.div>
         </>
