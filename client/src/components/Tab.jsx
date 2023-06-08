@@ -7,7 +7,14 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
   const snap = useSnapshot(state);
 
   return (
-    <div>Tab</div>
+    <div
+      key={tab.name}
+      className={`tab-btn ${isFilterTab ? 'rounded-full glassmorphism' : 'rounded-4'}`}
+      onClick={handleClick}
+    
+    >
+
+    </div>
   )
 }
 
