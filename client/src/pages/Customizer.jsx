@@ -15,6 +15,12 @@ import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../compone
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+
+  // Tab Button Content will Change depending on the activeTab
+  const generateTabContent = () => {
+    
+  }
+
   return (
     <AnimatePresence>
       {!snap.intro && (
