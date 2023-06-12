@@ -36,7 +36,6 @@ const Customizer = () => {
         return <FilePicker />
       case "aipicker":
         return <AIPicker />
-
       default:
         return null;
     }
@@ -57,9 +56,11 @@ const Customizer = () => {
                   <Tab
                     key={tab.name}
                     tab={tab}
-                    handleClick= {() => {}}
+                    handleClick= {() => setActiveEditorTab(tab.name)}
                   />
                 ))}
+
+                {generateTabContent()}
               </div>
             </div>
           </motion.div>
