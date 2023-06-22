@@ -9,8 +9,7 @@ import state from '../store';
 import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
-
-import { fadeAnimation, slideAnimation } from  '../config/motion';
+import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 
 const Customizer = () => {
@@ -45,18 +44,26 @@ const Customizer = () => {
     }
   }
 
-const handleDecals = (type, result) => {
-  const decalType = DecalTypes[types];
+  const handleDecals = (type, result) => {
+    const decalType = DecalTypes[type];
 
-  state[decalType.stateProperty] = result;
+    state[decalType.stateProperty] = result;
 
-  if(!activeFilterTab[decalType.isFilterTab]) {
-    handleActiveFilterTab(decalType.filterTab)
+    if(!activeFilterTab[decalType.filterTab]) {
+      handleActiveFilterTab(decalType.filterTab)
+    }
   }
-}
 
 const handleActiveFilterTab = (tabName) => {
-  
+  switch (tabName) {
+    case "logoShirt":
+      state.isLogoTexture = !activeFilterTab[tabName];
+      break;
+    case "stylishShirt":
+      state.isFullTexture = !activeFilterTab[tabName];
+      default:
+        break;
+  }
 }
 
 const readFile = (type) => {
