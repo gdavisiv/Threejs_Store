@@ -62,6 +62,8 @@ const handleActiveFilterTab = (tabName) => {
     case "stylishShirt":
       state.isFullTexture = !activeFilterTab[tabName];
       default:
+        state.isLogoTexture = true;
+        state.isFullTexture = false;
         break;
   }
 }
