@@ -35,7 +35,6 @@ const Customizer = () => {
           setFile={setFile}
           readFile={readFile}
         />
-
       case "aipicker":
         return <AIPicker />
       default:
@@ -111,8 +110,8 @@ const readFile = (type) => {
           </motion.div>
 
           <motion.div
-            className="filtertabs-container"
-            {...slideAnimation('up')}
+            className='filtertabs-container'
+            {...slideAnimation("up")}
           >
             {FilterTabs.map((tab) => (
               <Tab
