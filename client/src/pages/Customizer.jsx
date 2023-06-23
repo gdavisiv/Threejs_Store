@@ -1,5 +1,3 @@
-//00:44:45
-
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
@@ -35,6 +33,7 @@ const Customizer = () => {
         return <FilePicker
           file={file}
           setFile={setFile}
+          readFile={readFile}
         />
 
       case "aipicker":
@@ -64,14 +63,13 @@ const handleActiveFilterTab = (tabName) => {
       default:
         state.isLogoTexture = true;
         state.isFullTexture = false;
-        break;
   }
 }
 
 const readFile = (type) => {
   reader(file)
     .then((result) => {
-      handleDecals(type,result);
+      handleDecals(type, result);
       setActiveEditorTab("");
     })
 }
