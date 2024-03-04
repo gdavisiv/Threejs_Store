@@ -49,6 +49,7 @@ const Customizer = () => {
 
     state[decalType.stateProperty] = result;
 
+    //If no active filter tab, either logo or the texture
     if(!activeFilterTab[decalType.filterTab]) {
       handleActiveFilterTab(decalType.filterTab)
     }
