@@ -55,6 +55,7 @@ const Customizer = () => {
     }
   }
 
+//Are we showing the shirt/texture/logo or both?
 const handleActiveFilterTab = (tabName) => {
   switch (tabName) {
     case "logoShirt":
