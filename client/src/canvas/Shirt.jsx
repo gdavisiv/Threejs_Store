@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Decal, useGLTF, useTexture } from '@react-three/drei';
 
 import state from '../store';
@@ -13,9 +13,22 @@ const Shirt = () => {
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
 
-  useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
+  const { gl } = useThree(); // Get the Three.js renderer from the useThree hook
 
-  //This tracks STATE Changes, REACt will render the model whenever the state changes.
+  // Set anisotropy for logoTexture after it's loaded
+  useEffect(() => {
+    if (logoTexture) {
+      logoTexture.anisotropy = gl.capabilities.getMaxAnisotropy();
+    }
+  }, [logoTexture, gl]);
+
+  // Update the color of the material using easing from maath in the animation loop
+  useFrame((state, delta) => {
+    if (materials.lambert1 && snap.color) {
+      easing.dampC(materials.lambert1.color, snap.color, 0.25, delta);
+    }
+  });
+
   const stateString = JSON.stringify(snap);
 
   return (
@@ -24,14 +37,13 @@ const Shirt = () => {
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
         material={materials.lambert1}
-        material-roughness={1}
         dispose={null}
       >
         {snap.isFullTexture && (
           <Decal 
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
-            scale={1}
+            scale={[1, 1, 1]} // Ensure scale is an array or a Vector3
             map={fullTexture}
           />
         )}
@@ -40,16 +52,15 @@ const Shirt = () => {
           <Decal 
             position={[0, 0.04, 0.15]}
             rotation={[0, 0, 0]}
-            scale={0.15}
+            scale={[0.15, 0.15, 0.15]} // Ensure scale is an array or a Vector3
             map={logoTexture}
-            map-anisotropy={16}
             depthTest={false}
             depthWrite={true}
           />
         )}
       </mesh>
     </group>
-  )
-}
+  );
+};
 
-export default Shirt
+export default Shirt;

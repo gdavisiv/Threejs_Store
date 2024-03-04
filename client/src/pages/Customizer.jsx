@@ -6,7 +6,7 @@ import { useSnapshot } from 'valtio';
 
 import config from '../config/config';
 import state from '../store';
-import { download } from '../assets';
+//import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
@@ -67,6 +67,14 @@ const handleActiveFilterTab = (tabName) => {
         state.isLogoTexture = true;
         state.isFullTexture = false;
   }
+
+  //After setting the state, we need to set the active filter tab to update
+  setActiveFilterTab((prevState) => {
+    return {
+      ...prevState,
+      [tabName]: !prevState[tabName]
+    }
+  })
 }
 
 const readFile = (type) => {
