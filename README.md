@@ -1,7 +1,7 @@
 AI-Powered 3D Website Using React-Fiber + ThreeJS
 
-![image](https://github.com/gdavisiv/Threejs_Store/assets/7787759/24605c10-7ed7-42e0-8599-76227eeea50a)
+![image](https://github.com/gdavisiv/Threejs_Store/assets/7787759/d5d31f23-5fc0-483e-bf9b-e302a1c1312b)
 
 <br>
 
-![image](https://github.com/gdavisiv/Threejs_Store/assets/7787759/dcb73d08-e2cf-4ab8-bf2f-b6c3a61bcf0e)
+![image](https://github.com/gdavisiv/Threejs_Store/assets/7787759/e75288dd-0996-4e37-ac22-180c490f03d9)
